@@ -1,6 +1,7 @@
 ## lib_datetools
 
-A simple (experimental) class for transform/modify dates in differ formats.
+Modul (lib) for LEPTON-CMS that contains a simple (experimental) class  
+for transform/modify dates in differ formats.
 
 *This project is the follower of the [x_cDate] (https://github.com/aldus/x_cdate) class for WB/WBCE*
 
