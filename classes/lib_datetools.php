@@ -38,11 +38,19 @@ class lib_datetools
 	
 	/**
 	 *	Private var for the current version of this class.
+	 *
+	 *	@var	string
+	 *	@access	public
+	 *
 	 */
 	private	$version = "0.1.0.0";
 	
 	/**
-	 * @var Singleton The reference to *Singleton* instance of this class
+	 *	The reference to *Singleton* instance of this class
+	 *
+	 *	@var	object
+	 *	@access	private
+	 *
 	 */
 	private static $instance;
 
@@ -50,7 +58,9 @@ class lib_datetools
 	 *	The (default) format-string.
 	 *	Default is dd.mm.yyyy
 	 *	
-	 *	@var string
+	 *	@var	string
+	 *	@access	public
+	 *
 	 */
 	public $format = "%d.%m.%Y";
 	
@@ -58,7 +68,9 @@ class lib_datetools
 	 *	The language-flags as an array.
 	 *	Default are some settings for German.
 	 *	
-	 *	@var array
+	 *	@var	array
+	 *	@access	public
+	 *
 	 */
 	public $lang = Array('de_DE@euro', 'de_DE.UTF-8', 'de_DE', 'de', 'ge');
 	
@@ -66,6 +78,8 @@ class lib_datetools
 	 *	The mode we are using. Default is LC_ALL for all.
 	 *	
 	 *	@var string
+	 *	@access	public
+	 *
 	 */
 	public $mode = "LC_ALL";
 	
@@ -76,6 +90,7 @@ class lib_datetools
 	 *
 	 *	@var	integer
 	 *	@see	_force_year
+	 *	@access	public
 	 *
 	 */
 	public $force_year = 2;
@@ -262,7 +277,7 @@ class lib_datetools
 	 *	@return	nothing	Param is passed by reference!
 	 *
 	 */	
-	private function _force_date ( &$aDateString ) {
+	private function _force_date( &$aDateString ) {
 		$pattern = array("*[\\/|.|-]{1,}*");
 		$replace = array(".");
 		
@@ -281,7 +296,7 @@ class lib_datetools
 	 *			least three chars: "d", "m", and "y"
 	 *
 	 */
-	private function _force_format (&$aFormat) {
+	private function _force_format( &$aFormat ) {
 		
 		$aFormat = strtolower ($aFormat);
 		
@@ -329,7 +344,7 @@ class lib_datetools
 	 *	@return	bool	true if the key is known, false if faild.
 	 *
 	 */
-	public function set_core_lang ($aKeyStr = "") {
+	public function set_core_language ($aKeyStr = "") {
 		
 		$return_value = true;
 		
@@ -392,6 +407,8 @@ class lib_datetools
 			exec('locale -a', $temp_array);
 		ob_end_flush();
 
+		$all = array();
+		
 		foreach($temp_array as $lang_key) 
 			if (substr($lang_key, 0,5) == $aKey) $all[]=$lang_key;
 		

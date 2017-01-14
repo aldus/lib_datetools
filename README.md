@@ -17,6 +17,12 @@ for transform/modify dates in differ formats.
 			//	setting the format
 			$oDateTool->format="%A, %d. <font style='color:#900;'>%B</font> %Y";
 
+			//	Use of the internal translation-array, e.g.
+			if( isset( $oDateTool->CORE_date_formats[ DATE_FORMAT ] ))
+			{
+				$oDateTool->format = $oDateTool->CORE_date_formats[ DATE_FORMAT ];
+			}
+
 			// This will return the date-string in the given format.
 			//	e.g. below: 11. März 1966
 			echo $oDateTool->transform("11/03/1966");
