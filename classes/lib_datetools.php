@@ -14,25 +14,6 @@
  *
  */
 
-// include class.secure.php to protect this file and the whole CMS!
-if (defined('LEPTON_PATH')) {	
-	include(LEPTON_PATH.'/framework/class.secure.php'); 
-} else {
-	$oneback = "../";
-	$root = $oneback;
-	$level = 1;
-	while (($level < 10) && (!file_exists($root.'/framework/class.secure.php'))) {
-		$root .= $oneback;
-		$level += 1;
-	}
-	if (file_exists($root.'/framework/class.secure.php')) { 
-		include($root.'/framework/class.secure.php'); 
-	} else {
-		trigger_error(sprintf("[ <b>%s</b> ] Can't include class.secure.php!", $_SERVER['SCRIPT_NAME']), E_USER_ERROR);
-	}
-}
-// end include class.secure.php
-
 class lib_datetools
 {
 	
@@ -377,7 +358,6 @@ class lib_datetools
 			case "ZH":
 				$this->lang = Array('zh_CN','zh_CN.eucCN','zh_CN.GB18030','zh_CN.GB2312','zh_CN.GBK','zh_CN.UTF-8','zh_HK','zh_HK.Big5HKSCS','zh_HK.UTF-8','zh_TW','zh_TW.Big5','zh_TW.UTF-8');
 				break;
-		
 				
 			default:
 				$this->test_locale($aKeyStr);
